@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content" style="margin-top: 2vw;margin-bottom: 2vw;display: flow;align-items: center;">
+        <div class="container" style="font-family: monospace;display: flow;margin-left: 35vw;">
+            <div class="heading">
+                <h1>Sentiment Analysis</h1>
+            </div>
+            <div class="instructions" style="margin-top: 2vw;">
+                <p>
+                    <ul style="margin-right: 8vw;margin-left: -2vw;">
+                        <li>Enter the <a href="https://www.yelp.com/" target="_blank">Yelp</a>'s article link in the link box</li>
+                        <li>Click on the Suggest buttion to get a suggestion</li>
+                        <li>Please wait upto 10 seconds for your suggestion</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="container">
+            <form method="POST" class="form-register" style="color:aliceblue;margin-top: 3vw;margin-left: 20vw;margin-right: 20vw;">
+                {{ form.hidden_tag() }}
+                <h1 class="h3 mb-3 font-weight-normal" style="margin-left: 15%">
+                    Please Enter Your Yelp Link:
+                </h1>
+
+                {{ form.search.label() }}
+                {{ form.search(class="form-control", placeholder="Some Yelp Link") }}
+
+                {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+            </form>
+        </div>
+
+        {% if wait == True %}
+            <div class="results" style="margin-top: 2vw;margin-left: 25vw;margin-right: 25vw;text-align: justify;font-family: monospace;">
+                <h3 style="text-align: center;">
+                    Your suggestion for the Yelp link is below:
+                </h3>
+                <br>
+                <p>
+                    {{ display }}
+                </p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
