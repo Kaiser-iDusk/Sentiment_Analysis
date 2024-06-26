@@ -8,6 +8,8 @@ import requests
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+from app_files import app, db
+from app_files.models import URL_Yelp
 nltk.download('stopwords')
 nltk.download('wordnet')
 
@@ -51,10 +53,14 @@ class Pipeline:
             return None
         self.df = ret 
         self.clean()
-        output = self.generate()
+        output, scores = self.generate()
+        if scores is not None:
+            register = URL_Yelp(url = url, polarity = float(scores[0]))
+            db.session.add(register)
+            db.session.commit()
         return str(output)
     
     def generate(self):
         pol, sub = self.df['polarity'].mean(), self.df['subjectivity'].mean()
         response = model.generate_content(f'Write a feedback report for a product (around 50-75 words) that has following sentiment metrics: polarity={pol} , subjectivity= {sub}. The feedback should be to the point and should not reveal any metric. Also try to decide whether you would have brought the product seeing the scores and why?')
-        return response.text 
+        return response.text, (pol, sub)

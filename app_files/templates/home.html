@@ -43,3 +43,20 @@
         {% endif %}
     </div>
 {% endblock %}
+
+{% block recents %}
+
+    <div class="table-content" style="font-family: cursive;margin-top: 5vw;">
+        <h3 style="text-align: center;">
+            Recent Suggestions:
+        </h3>
+        <ul style="font-family: cursive;text-align: center;list-style-type: none;">
+            {% for val in urls %}
+
+                <li style="padding: 0.2vw;"><a href="{{val}}">{{val}}</a></li>
+
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
