@@ -1,6 +1,6 @@
 <h2>This project aims to get a polarity and subjectivity score of any Yelp (website) product review.</h2>
 
-<p>Most of us think should we buy a product or not or maybe should we hire a particular electrician or not? This project helps you out by getting a sentiment analysis of all the reviews of that particular service on Yelp and NLP technique to provide you a score of polarity and subjectivity. But a layman cannot infer scores of such a prediction and here comes Gemini API that uses the score to provide a layman terms understanding of the scores and a suggesting action of whether you should buy it or not. Also using a database you can see the top 5 services with descending order of polarity scores that other users have viewed.</p>
+<p>Most of us think should we buy a product or not or maybe should we hire a particular electrician or not? This project helps you out by getting a sentiment analysis of all the reviews of that particular service on Yelp and applies NLP techniques to provide you a score of polarity and subjectivity. But a layman cannot infer scores of such a prediction and here comes Gemini API that uses the score to provide a layman terms understanding of the scores and a suggesting action of whether you should buy it or not. Also using a database you can see the top 5 services with descending order of polarity scores that other users have viewed.</p>
 Tech stacks used:
 <ul>
   <li>Python</li>
